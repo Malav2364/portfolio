@@ -52,7 +52,6 @@ export const EXPERIENCE_GROUPS = [
       date: "May 2025 - July 2025",
       location: "Remote",
       description: "Developed full-stack web applications and designed UI/UX interfaces. Managed backend logic alongside frontend implementation.",
-      isLatest: true
     }]
   },
   {
