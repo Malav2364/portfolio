@@ -12,7 +12,18 @@ const CustomCursor: React.FC = () => {
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
+    // Only show custom cursor on devices with a fine pointer (mouse)
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    setIsVisible(mediaQuery.matches);
+
+    const handleResize = () => setIsVisible(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleResize);
+
+    if (!mediaQuery.matches) return;
+
     const moveCursor = (e: MouseEvent) => {
       // Update motion values directly (no re-render)
       cursorX.set(e.clientX);
@@ -37,10 +48,13 @@ const CustomCursor: React.FC = () => {
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
+      mediaQuery.removeEventListener('change', handleResize);
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);
+
+  if (!isVisible) return null;
 
   return (
     <>

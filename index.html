@@ -32,12 +32,18 @@
   <style>
     body {
       margin: 0;
-      cursor: none;
       /* Hide default cursor for custom one */
       background-color: #050505;
       color: #f5f5f5;
       font-family: 'Manrope', sans-serif;
       overflow-x: hidden;
+    }
+
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+        /* Hide default cursor only on devices with a mouse */
+      }
     }
 
     h1,
