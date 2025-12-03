@@ -7,7 +7,11 @@ import { Briefcase, GraduationCap, Download } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About: React.FC = () => {
+interface AboutProps {
+  onNavigate?: (page: string) => void;
+}
+
+const About: React.FC<AboutProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -106,6 +110,57 @@ const About: React.FC = () => {
             <TreeTimeline title="Experience" groups={EXPERIENCE_GROUPS} icon={<Briefcase size={24} />} />
             <TreeTimeline title="Education" groups={EDUCATION_GROUPS} icon={<GraduationCap size={24} />} />
          </div>
+      </div>
+
+      {/* Design Lab Teaser */}
+      <div className="max-w-7xl mx-auto mt-24 md:mt-32 border-t border-neutral-200 dark:border-neutral-800 pt-24">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+            <div className="max-w-2xl">
+                <h2 className="text-sm font-mono text-orange-600 dark:text-orange-500 uppercase tracking-widest mb-6">Design Lab</h2>
+                <h3 className="text-3xl md:text-5xl font-serif leading-tight mb-6 text-neutral-900 dark:text-white">
+                    Where logic meets <span className="italic text-neutral-500">aesthetics</span>.
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-lg font-light leading-relaxed">
+                    Beyond code, I explore the visual side of digital products. From brand identities to complex user interfaces, 
+                    check out my dedicated portfolio for design work.
+                </p>
+            </div>
+            
+            <button 
+                onClick={() => onNavigate?.('Design Lab')}
+                className="group flex items-center gap-4 text-neutral-900 dark:text-white hover:text-orange-600 dark:hover:text-orange-500 transition-colors"
+            >
+                <div className="w-16 h-16 rounded-full border border-neutral-200 dark:border-neutral-800 flex items-center justify-center group-hover:border-orange-600 dark:group-hover:border-orange-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right group-hover:-rotate-45 transition-transform duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <span className="font-mono uppercase tracking-widest text-sm">View Design Lab</span>
+            </button>
+        </div>
+
+        {/* Preview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+            {[
+                { title: "Thaad Restaurant", image: "/Thaad_images/1.png", category: "Brand Identity" },
+                { title: "Grills & Gravies", image: "/grills images/1.png", category: "Website Redesign" }
+            ].map((item, i) => (
+                <div 
+                    key={i}
+                    onClick={() => onNavigate?.('Design Lab')}
+                    className="group cursor-pointer relative aspect-[16/9] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800"
+                >
+                    <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
+                    <div className="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <span className="text-xs font-mono uppercase tracking-widest text-orange-400 mb-2 block">{item.category}</span>
+                        <h4 className="text-2xl font-serif">{item.title}</h4>
+                    </div>
+                </div>
+            ))}
+        </div>
       </div>
     </section>
   );

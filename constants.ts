@@ -108,3 +108,44 @@ export const SKILLS: Skill[] = [
   { name: "Figma", category: "design" },
   { name: "Adobe XD", category: "design" },
 ];
+
+export const DESIGN_PROJECTS: Project[] = [
+  {
+    id: 101,
+    title: "Thaad Restaurant & Cafe",
+    category: "Brand Identity & UI",
+    image: "/Thaad_images/1.png",
+    description: "A comprehensive digital transformation for a newly opened food spot. The project involved creating a brand identity from scratch and designing a conversion-focused landing page to establish their online presence.",
+    problem: "Thaad had no website, menu visibility, or online ordering flow. The brand was invisible online, lacking trust-building elements like testimonials and a cohesive visual identity.",
+    solution: "Designed a bright, minimal, food-forward landing page. Established a clear visual identity with high-quality imagery, seamless Swiggy/Zomato integration, and a structured user journey.",
+    impact: "Created a complete digital identity that builds trust and guides users smoothly toward ordering or visiting.",
+    tech: ["Figma", "UI/UX", "Brand Strategy", "Prototyping"],
+    gallery: [
+      "/Thaad_images/1.png",
+      "/Thaad_images/2.png",
+      "/Thaad_images/3.png",
+      "/Thaad_images/4.png",
+      "/Thaad_images/5.png",
+      "/Thaad_images/6.png"
+    ]
+  },
+  {
+    id: 102,
+    title: "Grills & Gravies",
+    category: "Website Redesign",
+    image: "/grills images/1.png",
+    description: "A premium redesign for an existing restaurant with a broken digital presence. The goal was to elevate the brand perception through a rich, dark-themed aesthetic that mirrors the quality of their cuisine.",
+    problem: "The existing website was outdated, broken, and cluttered. It lacked visual hierarchy, had weak CTA placement, and failed to reflect the premium quality of the food.",
+    solution: "Executed a complete redesign with a premium dark theme. Prioritized bold typography, dramatic food photography, and a simplified navigation flow to enhance user engagement.",
+    impact: "Transformed the brand into a modern, visually immersive experience that improves food visibility and ordering clarity.",
+    tech: ["Figma", "UX Research", "Dark Mode Design", "Visual Hierarchy"],
+    gallery: [
+      "/grills images/1.png",
+      "/grills images/2.png",
+      "/grills images/3.png",
+      "/grills images/4.png",
+      "/grills images/5.png",
+      "/grills images/6.png"
+    ]
+  }
+];

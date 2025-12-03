@@ -5,6 +5,10 @@ export interface Project {
   image: string;
   description: string;
   tech: string[];
+  problem?: string;
+  solution?: string;
+  impact?: string;
+  gallery?: string[];
 }
 
 export interface Experience {

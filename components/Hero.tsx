@@ -1,8 +1,12 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Palette } from 'lucide-react';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate?: (page: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -66,13 +70,20 @@ const Hero: React.FC = () => {
                 Transforming ideas into stunning visuals—UI/UX and brand design that captivates, engages, and delivers results.
             </p>
 
-            <div className="hero-text-reveal flex justify-center lg:justify-start">
+            <div className="hero-text-reveal flex flex-col md:flex-row justify-center lg:justify-start gap-4">
                 <button 
                     onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="group bg-neutral-900 dark:bg-white text-white dark:text-black px-8 py-4 rounded-full font-medium flex items-center gap-3 hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white dark:hover:text-white transition-all duration-300"
+                    className="group bg-neutral-900 dark:bg-white text-white dark:text-black px-8 py-4 rounded-full font-medium flex items-center justify-center gap-3 hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white dark:hover:text-white transition-all duration-300"
                 >
                     <span>Contact Me</span>
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button 
+                    onClick={() => onNavigate?.('Design Lab')}
+                    className="group bg-transparent border border-neutral-300 dark:border-white/20 text-neutral-900 dark:text-white px-8 py-4 rounded-full font-medium flex items-center justify-center gap-3 hover:bg-neutral-100 dark:hover:bg-white/10 transition-all duration-300"
+                >
+                    <span>Explore Designs</span>
+                    <Palette size={20} className="group-hover:rotate-12 transition-transform" />
                 </button>
             </div>
         </div>
