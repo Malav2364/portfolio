@@ -121,7 +121,7 @@ const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
                 </button>
 
                 {/* Image Area */}
-                <div className="w-full md:w-2/3 bg-black flex flex-col overflow-y-auto custom-scrollbar">
+                <div className="w-full md:w-2/3 bg-black flex flex-col overflow-hidden h-[40vh] md:h-auto flex-shrink-0 relative">
                     {/* Carousel Gallery */}
                     {selectedProject.gallery && selectedProject.gallery.length > 0 && (
                         <div className="relative w-full h-full bg-neutral-900 flex items-center justify-center overflow-hidden group/carousel">
@@ -134,18 +134,18 @@ const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -100 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="max-w-full max-h-[80vh] object-contain shadow-2xl"
+                                    className="max-w-full max-h-full object-contain shadow-2xl p-4"
                                 />
                             </AnimatePresence>
 
                             {/* Navigation Controls */}
-                            <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300">
+                            <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 pointer-events-none">
                                 <button 
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setCurrentImageIndex((prev) => (prev === 0 ? (selectedProject.gallery?.length || 1) - 1 : prev - 1));
                                     }}
-                                    className="p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-colors"
+                                    className="p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-colors pointer-events-auto"
                                 >
                                     <ChevronLeft size={24} />
                                 </button>
@@ -154,14 +154,14 @@ const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
                                         e.stopPropagation();
                                         setCurrentImageIndex((prev) => (prev + 1) % (selectedProject.gallery?.length || 1));
                                     }}
-                                    className="p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-colors"
+                                    className="p-3 rounded-full bg-black/50 hover:bg-black/80 text-white backdrop-blur-sm transition-colors pointer-events-auto"
                                 >
                                     <ChevronRight size={24} />
                                 </button>
                             </div>
 
                             {/* Dots Indicator */}
-                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                                 {selectedProject.gallery.map((_, idx) => (
                                     <button
                                         key={idx}
@@ -175,7 +175,7 @@ const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
                 </div>
 
                 {/* Info Area */}
-                <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col bg-neutral-900 text-white border-l border-white/10 overflow-y-auto custom-scrollbar">
+                <div className="w-full md:w-1/3 p-6 md:p-12 flex flex-col bg-neutral-900 text-white border-l border-white/10 overflow-y-auto custom-scrollbar flex-1">
                     <span className="text-orange-500 font-mono text-xs uppercase tracking-widest mb-4">{selectedProject.category}</span>
                     <h2 className="text-3xl md:text-4xl font-serif mb-8">{selectedProject.title}</h2>
                     

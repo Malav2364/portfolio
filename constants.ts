@@ -3,6 +3,7 @@ import { Experience, Project, Skill } from './types';
 export const SOCIAL_LINKS = {
   github: "https://github.com/malav2364",
   linkedin: "https://www.linkedin.com/in/maalavpatel/",
+  behance: "https://www.behance.net/malavpatel20",
   email: "malavp024@gmail.com",
   phone: "9662905973"
 };
@@ -146,6 +147,23 @@ export const DESIGN_PROJECTS: Project[] = [
       "/grills images/4.png",
       "/grills images/5.png",
       "/grills images/6.png"
+    ]
+  },
+  {
+    id: 103,
+    title: "LUMIERE",
+    category: "E-commerce App",
+    image: "/LUMIERE images/1.jpg",
+    description: "A modern e-commerce clothing app concept design focusing on visual storytelling and seamless shopping experience.",
+    problem: "Users often face cluttered interfaces and complex checkout processes in fashion apps, leading to cart abandonment.",
+    solution: "Designed a minimalist, image-first interface with intuitive navigation and a streamlined checkout flow.",
+    impact: "Enhanced user engagement through immersive visuals and reduced friction in the purchase journey.",
+    tech: ["Figma", "UI Design", "Prototyping", "Mobile App"],
+    gallery: [
+      "/LUMIERE images/1.jpg",
+      "/LUMIERE images/2.jpg",
+      "/LUMIERE images/3.jpg",
+      "/LUMIERE images/4.jpg"
     ]
   }
 ];

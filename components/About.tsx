@@ -66,6 +66,10 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                         <span className="sr-only">LinkedIn</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                      </a>
+                     <a href={SOCIAL_LINKS.behance} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-[#1769ff] hover:border-[#1769ff] transition-all duration-300 group/icon">
+                        <span className="sr-only">Behance</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="lucide lucide-behance"><path d="M20.47 11.29h-3.91c.08-1.02.51-1.62 1.62-1.62.94 0 1.45.43 1.62 1.11h2.29c-.25-1.87-1.87-2.98-3.91-2.98-3.06 0-4.68 2.13-4.68 4.93 0 2.64 1.62 4.93 4.85 4.93 2.13 0 3.83-1.02 4.17-3.23h-2.21c-.17.68-.68 1.28-1.87 1.28-1.28 0-1.96-.85-2.04-2.13h6.12c.09-.17.09-1.27-.05-2.29zm-4.68.85c.09-1.02.59-1.62 1.62-1.62.85 0 1.45.51 1.53 1.62h-3.15zM5.32 12.57h2.21c1.28 0 2.04-.68 2.04-1.79 0-1.19-.94-1.7-1.79-1.79.85-.17 1.45-.77 1.45-1.62 0-1.19-1.02-1.79-2.21-1.79H2.34v6.97h2.98zM4.63 7.21h2.04c.51 0 .94.17.94.85s-.43.85-.94.85H4.63V7.21zm.34 3.66h2.04c.6 0 1.02.17 1.02.94 0 .85-.43.94-1.02.94H4.97v-1.88zM14 4.74h3.91v1.45H14z"/></svg>
+                     </a>
                      <a href={`mailto:${SOCIAL_LINKS.email}`} className="p-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-red-500 hover:border-red-500 transition-all duration-300 group/icon">
                         <span className="sr-only">Email</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -138,10 +142,11 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
         </div>
 
         {/* Preview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
             {[
                 { title: "Thaad Restaurant", image: "/Thaad_images/1.png", category: "Brand Identity" },
-                { title: "Grills & Gravies", image: "/grills images/1.png", category: "Website Redesign" }
+                { title: "Grills & Gravies", image: "/grills images/1.png", category: "Website Redesign" },
+                { title: "LUMIERE", image: "/LUMIERE images/1.jpg", category: "E-commerce App" }
             ].map((item, i) => (
                 <div 
                     key={i}
