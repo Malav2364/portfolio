@@ -112,22 +112,43 @@ export const SKILLS: Skill[] = [
 
 export const DESIGN_PROJECTS: Project[] = [
   {
-    id: 101,
-    title: "Thaad Restaurant & Cafe",
-    category: "Brand Identity & UI",
-    image: "/Thaad_images/1.png",
-    description: "A comprehensive digital transformation for a newly opened food spot. The project involved creating a brand identity from scratch and designing a conversion-focused landing page to establish their online presence.",
-    problem: "Thaad had no website, menu visibility, or online ordering flow. The brand was invisible online, lacking trust-building elements like testimonials and a cohesive visual identity.",
-    solution: "Designed a bright, minimal, food-forward landing page. Established a clear visual identity with high-quality imagery, seamless Swiggy/Zomato integration, and a structured user journey.",
-    impact: "Created a complete digital identity that builds trust and guides users smoothly toward ordering or visiting.",
-    tech: ["Figma", "UI/UX", "Brand Strategy", "Prototyping"],
+    id: 104,
+    title: "Neno Technology",
+    category: "Website Redesign",
+    image: "/Neno Tech images/1.png",
+    description: "A complete visual and functional redesign for Neno Technology, aiming to modernize their digital presence and streamline user interaction.",
+    problem: "The previous website had an outdated interface, poor mobile responsiveness, and unclear information architecture which confused visitors.",
+    solution: "Developed a sleek, modern design system with improved navigation, responsive layouts, and a focus on clear content hierarchy.",
+    impact: "Resulted in a more professional brand image and significantly improved user engagement and time-on-site.",
+    tech: ["Figma", "UI/UX", "Web Design", "Prototyping"],
     gallery: [
-      "/Thaad_images/1.png",
-      "/Thaad_images/2.png",
-      "/Thaad_images/3.png",
-      "/Thaad_images/4.png",
-      "/Thaad_images/5.png",
-      "/Thaad_images/6.png"
+      "/Neno Tech images/1.png",
+      "/Neno Tech images/2.png",
+      "/Neno Tech images/3.png",
+      "/Neno Tech images/4.png",
+      "/Neno Tech images/5.png",
+      "/Neno Tech images/6.png",
+      "/Neno Tech images/7.png",
+      "/Neno Tech images/8.png",
+      "/Neno Tech images/9.png",
+      "/Neno Tech images/10.png"
+    ]
+  },
+  {
+    id: 103,
+    title: "LUMIERE",
+    category: "E-commerce App",
+    image: "/LUMIERE images/1.jpg",
+    description: "A modern e-commerce clothing app concept design focusing on visual storytelling and seamless shopping experience.",
+    problem: "Users often face cluttered interfaces and complex checkout processes in fashion apps, leading to cart abandonment.",
+    solution: "Designed a minimalist, image-first interface with intuitive navigation and a streamlined checkout flow.",
+    impact: "Enhanced user engagement through immersive visuals and reduced friction in the purchase journey.",
+    tech: ["Figma", "UI Design", "Prototyping", "Mobile App"],
+    gallery: [
+      "/LUMIERE images/1.jpg",
+      "/LUMIERE images/2.jpg",
+      "/LUMIERE images/3.jpg",
+      "/LUMIERE images/4.jpg"
     ]
   },
   {
@@ -150,20 +171,22 @@ export const DESIGN_PROJECTS: Project[] = [
     ]
   },
   {
-    id: 103,
-    title: "LUMIERE",
-    category: "E-commerce App",
-    image: "/LUMIERE images/1.jpg",
-    description: "A modern e-commerce clothing app concept design focusing on visual storytelling and seamless shopping experience.",
-    problem: "Users often face cluttered interfaces and complex checkout processes in fashion apps, leading to cart abandonment.",
-    solution: "Designed a minimalist, image-first interface with intuitive navigation and a streamlined checkout flow.",
-    impact: "Enhanced user engagement through immersive visuals and reduced friction in the purchase journey.",
-    tech: ["Figma", "UI Design", "Prototyping", "Mobile App"],
+    id: 101,
+    title: "Thaad Restaurant & Cafe",
+    category: "Brand Identity & UI",
+    image: "/Thaad_images/1.png",
+    description: "A comprehensive digital transformation for a newly opened food spot. The project involved creating a brand identity from scratch and designing a conversion-focused landing page to establish their online presence.",
+    problem: "Thaad had no website, menu visibility, or online ordering flow. The brand was invisible online, lacking trust-building elements like testimonials and a cohesive visual identity.",
+    solution: "Designed a bright, minimal, food-forward landing page. Established a clear visual identity with high-quality imagery, seamless Swiggy/Zomato integration, and a structured user journey.",
+    impact: "Created a complete digital identity that builds trust and guides users smoothly toward ordering or visiting.",
+    tech: ["Figma", "UI/UX", "Brand Strategy", "Prototyping"],
     gallery: [
-      "/LUMIERE images/1.jpg",
-      "/LUMIERE images/2.jpg",
-      "/LUMIERE images/3.jpg",
-      "/LUMIERE images/4.jpg"
+      "/Thaad_images/1.png",
+      "/Thaad_images/2.png",
+      "/Thaad_images/3.png",
+      "/Thaad_images/4.png",
+      "/Thaad_images/5.png",
+      "/Thaad_images/6.png"
     ]
   }
 ];

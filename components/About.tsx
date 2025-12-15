@@ -1,9 +1,10 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { EXPERIENCE_GROUPS, EDUCATION_GROUPS, SOCIAL_LINKS } from '../constants';
+import { EXPERIENCE_GROUPS, EDUCATION_GROUPS, SOCIAL_LINKS, DESIGN_PROJECTS } from '../constants';
 import TreeTimeline from './TreeTimeline';
-import { Briefcase, GraduationCap, Download } from 'lucide-react';
+import { Briefcase, GraduationCap, Download, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +15,14 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -141,30 +150,56 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
             </button>
         </div>
 
-        {/* Preview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            {[
-                { title: "Thaad Restaurant", image: "/Thaad_images/1.png", category: "Brand Identity" },
-                { title: "Grills & Gravies", image: "/grills images/1.png", category: "Website Redesign" },
-                { title: "LUMIERE", image: "/LUMIERE images/1.jpg", category: "E-commerce App" }
-            ].map((item, i) => (
-                <div 
-                    key={i}
-                    onClick={() => onNavigate?.('Design Lab')}
-                    className="group cursor-pointer relative aspect-[16/9] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800"
+        {/* Design Carousel (Horizontal Scroll) */}
+        <div className="mt-16 relative">
+            {/* Scroll Buttons */}
+            <div className="flex justify-end gap-2 mb-4">
+                <button 
+                  onClick={() => scroll('left')}
+                  className="p-3 rounded-full border border-neutral-200 dark:border-white/10 hover:bg-neutral-100 dark:hover:bg-white/10 text-neutral-900 dark:text-white transition-colors"
                 >
-                    <img 
-                        src={item.image} 
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
-                    <div className="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <span className="text-xs font-mono uppercase tracking-widest text-orange-400 mb-2 block">{item.category}</span>
-                        <h4 className="text-2xl font-serif">{item.title}</h4>
-                    </div>
-                </div>
-            ))}
+                    <ChevronLeft size={20} />
+                </button>
+                <button 
+                  onClick={() => scroll('right')}
+                  className="p-3 rounded-full border border-neutral-200 dark:border-white/10 hover:bg-neutral-100 dark:hover:bg-white/10 text-neutral-900 dark:text-white transition-colors"
+                >
+                    <ChevronRight size={20} />
+                </button>
+            </div>
+
+            <div 
+                ref={scrollRef}
+                className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+                {[
+                    { title: "Neno Technology", image: "/Neno Tech images/1.png", category: "App Redesign" },
+                    { title: "LUMIERE", image: "/LUMIERE images/1.jpg", category: "E-commerce App" },
+                    { title: "Grills & Gravies", image: "/grills images/1.png", category: "Website Redesign" },
+                    { title: "Thaad Restaurant", image: "/Thaad_images/1.png", category: "Brand Identity" }
+                ].map((project, i) => (
+                    <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        onClick={() => onNavigate?.('Design Lab')}
+                        className="min-w-[85%] md:min-w-[45%] lg:min-w-[40%] snap-center cursor-pointer relative aspect-[16/9] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800 group border border-neutral-200 dark:border-white/5"
+                    >
+                        <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
+                        <div className="absolute bottom-6 left-6 text-white transform translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <span className="text-xs font-mono uppercase tracking-widest text-orange-400 mb-2 block">{project.category}</span>
+                            <h4 className="text-2xl font-serif">{project.title}</h4>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
         </div>
       </div>
     </section>
