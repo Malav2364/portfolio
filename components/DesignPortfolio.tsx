@@ -90,7 +90,7 @@ const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
 
         {/* Footer for this page */}
         <div className="mt-32 border-t border-neutral-200 dark:border-white/10 pt-12 flex justify-between items-center text-neutral-500 dark:text-neutral-400 text-sm">
-           <p>© 2024 Malav Patel. All rights reserved.</p>
+           <p>© 2025 Malav Patel. All rights reserved.</p>
            <p className="font-mono uppercase tracking-widest">Designed with Passion</p>
         </div>
       </div>
